@@ -17,5 +17,20 @@
     <string name="button1_caption">Button 1</string>
     <string name="button2_caption">Push the Button</string>
     <string name="action_about">Ігор Дубій</string>
-
+    <string name="action_load">Загрузить bash.im</string>
+    <string name="action_someitem">Do somethind</string>
+    <string name="title_activity_start">StartActivity</string>
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
 </resources>
