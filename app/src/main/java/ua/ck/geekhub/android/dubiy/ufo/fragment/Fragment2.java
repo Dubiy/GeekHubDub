@@ -1,6 +1,7 @@
 package ua.ck.geekhub.android.dubiy.ufo.fragment;
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,9 +15,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Random;
 
+import ua.ck.geekhub.android.dubiy.ufo.ArrayAdapterItem;
+import ua.ck.geekhub.android.dubiy.ufo.ObjectItem;
 import ua.ck.geekhub.android.dubiy.ufo.R;
 
 /**
@@ -60,7 +62,9 @@ public class Fragment2 extends Fragment {
             public void onClick(View v) {
                 int list_length = 20 + random.nextInt(10);
                 char[] tmp;
-                String[] listItems = new String[list_length];
+//                String[] listItems = new String[list_length];
+                ObjectItem[] ObjectItemData = new ObjectItem[list_length];
+
                 for (int i = 0; i < list_length; i++) {
                     int item_length = 10 + random.nextInt(10);
                     tmp = new char[item_length];
@@ -68,10 +72,11 @@ public class Fragment2 extends Fragment {
                         tmp[j] = chars[random.nextInt(chars.length)];
                     }
                     tmp[0] = Character.toUpperCase(tmp[0]);
-                    listItems[i] = new String(tmp);
+                    ObjectItemData[i] = new ObjectItem(9000 + i, new String(tmp));
+
                 }
 
-                ArrayAdapter adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, listItems);
+                ArrayAdapterItem adapter = new ArrayAdapterItem(getActivity(), R.layout.list_item, ObjectItemData);
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener(new ListItemClickListener());
             }
@@ -87,7 +92,9 @@ public class Fragment2 extends Fragment {
 
         @Override
         public void onItemClick(AdapterView adapterView, View view, int i, long l) {
-            Toast.makeText(getActivity().getApplicationContext(), "Clicked \"" + listView.getItemAtPosition(i).toString() + "\" item", Toast.LENGTH_LONG).show();
+            Context context = view.getContext();
+            TextView textViewItem = (TextView)view.findViewById(R.id.textViewItem);
+            Toast.makeText(getActivity().getApplicationContext(), "Clicked \"" + listView.getItemAtPosition(i).toString() + "\" item. ID: " + textViewItem.getTag().toString(), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -95,45 +102,6 @@ public class Fragment2 extends Fragment {
         super.onActivityCreated(savedInstanceState);
         Log.d(LOG_TAG, "fragment2 onActivityCreated");
     }
-
-    public void onStart() {
-        super.onStart();
-        Log.d(LOG_TAG, "fragment2 onStart");
-    }
-
-    public void onResume() {
-        super.onResume();
-        Log.d(LOG_TAG, "fragment2 onResume");
-    }
-
-    public void onPause() {
-        super.onPause();
-        Log.d(LOG_TAG, "fragment2 onPause");
-    }
-
-    public void onStop() {
-        super.onStop();
-        Log.d(LOG_TAG, "fragment2 onStop");
-    }
-
-    public void onDestroyView() {
-        super.onDestroyView();
-        Log.d(LOG_TAG, "fragment2 onDestroyView");
-    }
-
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d(LOG_TAG, "fragment2 onDestroy");
-    }
-
-    public void onDetach() {
-        super.onDetach();
-        Log.d(LOG_TAG, "fragment2 onDetach");
-    }
-
-
-
-
 
 
 

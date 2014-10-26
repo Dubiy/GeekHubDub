@@ -185,13 +185,6 @@ public class StartActivity extends Activity {
                 }
             } break;
 
-
-            /*case R.id.action_load:
-                /*WebSettings webSettings = webview.getSettings();
-                webSettings.setJavaScriptEnabled(true);
-                webview.setWebViewClient(new WebViewClient());
-                webview.loadUrl("http://bash.im");
-                break;*/
             default: {
                 Toast.makeText(getApplicationContext(), "Unknown menu item: " + item.getTitle(), Toast.LENGTH_LONG).show();
                 return super.onOptionsItemSelected(item);
