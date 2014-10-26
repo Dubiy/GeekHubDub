@@ -8,22 +8,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import java.util.Locale;
 
 import ua.ck.geekhub.android.dubiy.ufo.fragment.Fragment1;
 import ua.ck.geekhub.android.dubiy.ufo.fragment.Fragment2;
 import ua.ck.geekhub.android.dubiy.ufo.R;
+import ua.ck.geekhub.android.dubiy.ufo.fragment.FragmentWeb;
 
 public class StartActivity extends Activity {
 
@@ -41,7 +37,6 @@ public class StartActivity extends Activity {
 
         mTitle = mDrawerTitle = getTitle();
         mMenuItems = getResources().getStringArray(R.array.drawer_menu);
-//        mPlanetTitles = getResources().get
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         mDrawerList = (ListView)findViewById(R.id.left_drawer);
 
@@ -85,25 +80,6 @@ public class StartActivity extends Activity {
         }
     }
 
-    public static class FragmentLoader extends Fragment {
-        public static final String ARG_PLANET_NUMBER = "planet_number";
-
-        public FragmentLoader() {
-
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_planet, container, false);
-            int i = getArguments().getInt(ARG_PLANET_NUMBER);
-            String planet = getResources().getStringArray(R.array.planets_array)[i];
-            int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()), "drawable", getActivity().getPackageName());
-            ((ImageView)rootView.findViewById(R.id.image)).setImageResource(imageId);
-            getActivity().setTitle(planet);
-            return rootView;
-        }
-    }
-
     private void selectItem(int position, long id) {
         FragmentTransaction fTrans = getFragmentManager().beginTransaction();
 
@@ -117,16 +93,22 @@ public class StartActivity extends Activity {
                 Fragment2 fragment2 = new Fragment2();
                 fTrans.replace(R.id.content_frame, fragment2);
             } break;
+            case 2: {
+                FragmentWeb fragmentWeb = new FragmentWeb();
+                fTrans.replace(R.id.content_frame, fragmentWeb);
+            } break;
             default: {
                 Toast.makeText(getApplicationContext(), "Unknown item", Toast.LENGTH_LONG).show();
             }
         }
+
+        setTitle(mMenuItems[position]);
+
         fTrans.addToBackStack(null);
         fTrans.commit();
 
 
         mDrawerList.setItemChecked(position, true);
-//        setTitle(mPlanetTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 
@@ -135,8 +117,6 @@ public class StartActivity extends Activity {
         mTitle = title;
         getActionBar().setTitle(mTitle);
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -163,7 +143,6 @@ public class StartActivity extends Activity {
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-
 
         int id = item.getItemId();
         switch (id) {

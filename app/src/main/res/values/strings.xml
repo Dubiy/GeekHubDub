@@ -23,7 +23,7 @@
     <string-array name="drawer_menu">
         <item>Animations</item>
         <item>ListView</item>
-        <item>GridView</item>
+        <item>WebView</item>
     </string-array>
     <string-array name="planets_array">
         <item>Mercury</item>
