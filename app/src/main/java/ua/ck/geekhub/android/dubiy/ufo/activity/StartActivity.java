@@ -2,13 +2,12 @@ package ua.ck.geekhub.android.dubiy.ufo.activity;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,11 +21,13 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
+import ua.ck.geekhub.android.dubiy.ufo.fragment.Fragment1;
+import ua.ck.geekhub.android.dubiy.ufo.fragment.Fragment2;
 import ua.ck.geekhub.android.dubiy.ufo.R;
 
 public class StartActivity extends Activity {
 
-    private String[] mPlanetTitles;
+    private String[] mMenuItems;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -39,11 +40,12 @@ public class StartActivity extends Activity {
         setContentView(R.layout.activity_start);
 
         mTitle = mDrawerTitle = getTitle();
-        mPlanetTitles = getResources().getStringArray(R.array.planets_array);
+        mMenuItems = getResources().getStringArray(R.array.drawer_menu);
+//        mPlanetTitles = getResources().get
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         mDrawerList = (ListView)findViewById(R.id.left_drawer);
 
-        mDrawerList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mPlanetTitles));
+        mDrawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, mMenuItems));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -70,7 +72,7 @@ public class StartActivity extends Activity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         if (savedInstanceState == null) {
-            selectItem(0);
+            selectItem(0, 0);
         }
     }
 
@@ -78,15 +80,15 @@ public class StartActivity extends Activity {
         @Override
         public void onItemClick(AdapterView parent, View view, int position, long id) {
 //            Log.d("GARE", "ahaha");
-            selectItem(position);
-//            Toast.makeText(getApplicationContext(), "LeftDrawer item clicked. Pos: " + position, Toast.LENGTH_LONG).show();
+            selectItem(position, id);
+            Toast.makeText(getApplicationContext(), "LeftDrawer item clicked. Pos: " + position + ". ID: " + id + ". Item:" + mMenuItems[position], Toast.LENGTH_LONG).show();
         }
     }
 
-    public static class PlanetFragment extends Fragment {
+    public static class FragmentLoader extends Fragment {
         public static final String ARG_PLANET_NUMBER = "planet_number";
 
-        public PlanetFragment() {
+        public FragmentLoader() {
 
         }
 
@@ -102,19 +104,29 @@ public class StartActivity extends Activity {
         }
     }
 
-    private void selectItem(int position) {
-        Fragment fragment = new PlanetFragment();
-        Bundle args = new Bundle();
-        args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
-        fragment.setArguments(args);
+    private void selectItem(int position, long id) {
+        FragmentTransaction fTrans = getFragmentManager().beginTransaction();
 
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.content_frame, fragment)
-                .commit();
+        Fragment fragment = new Fragment();
+        switch (position) {
+            case 0: {
+                Fragment1 fragment1 = new Fragment1();
+                fTrans.replace(R.id.content_frame, fragment1);
+            } break;
+            case 1: {
+                Fragment2 fragment2 = new Fragment2();
+                fTrans.replace(R.id.content_frame, fragment2);
+            } break;
+            default: {
+                Toast.makeText(getApplicationContext(), "Unknown item", Toast.LENGTH_LONG).show();
+            }
+        }
+        fTrans.addToBackStack(null);
+        fTrans.commit();
+
 
         mDrawerList.setItemChecked(position, true);
-        setTitle(mPlanetTitles[position]);
+//        setTitle(mPlanetTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 

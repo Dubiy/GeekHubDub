@@ -12,9 +12,9 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
+
+import ua.ck.geekhub.android.dubiy.ufo.fragment.Fragment1;
+import ua.ck.geekhub.android.dubiy.ufo.fragment.Fragment2;
 
 
 public class old_MainActivity extends Activity {

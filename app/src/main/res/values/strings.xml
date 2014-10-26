@@ -20,6 +20,11 @@
     <string name="action_load">Загрузить bash.im</string>
     <string name="action_someitem">Do somethind</string>
     <string name="title_activity_start">StartActivity</string>
+    <string-array name="drawer_menu">
+        <item>Animations</item>
+        <item>ListView</item>
+        <item>GridView</item>
+    </string-array>
     <string-array name="planets_array">
         <item>Mercury</item>
         <item>Venus</item>
@@ -33,4 +38,9 @@
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="action_websearch">Web search</string>
+    <string name="btn_anim_fade_out">Fade Out</string>
+    <string name="btn_anim_fade_in">Fade In</string>
+    <string name="btn_anim_zoom_out">Zoom Out</string>
+    <string name="btn_anim_zoom_in">Zoom In</string>
+    <string name="btn_gen_list">Generate random list items</string>
 </resources>

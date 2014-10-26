@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/fragment1"
-        android:name="ua.ck.geekhub.android.dubiy.ufo.Fragment1"
+        android:name="ua.ck.geekhub.android.dubiy.ufo.fragment.Fragment1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
