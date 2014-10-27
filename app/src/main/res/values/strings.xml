@@ -19,7 +19,7 @@
     <string name="action_about">Ігор Дубій</string>
     <string name="action_load">Загрузить bash.im</string>
     <string name="action_someitem">Do somethind</string>
-    <string name="title_activity_start">StartActivity</string>
+    <string name="title_activity_start">Dubiy: UFO</string>
     <string-array name="drawer_menu">
         <item>Animations</item>
         <item>ListView</item>
