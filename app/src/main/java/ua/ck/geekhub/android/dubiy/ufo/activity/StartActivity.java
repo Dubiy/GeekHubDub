@@ -76,7 +76,7 @@ public class StartActivity extends Activity {
         public void onItemClick(AdapterView parent, View view, int position, long id) {
 //            Log.d("GARE", "ahaha");
             selectItem(position, id);
-            Toast.makeText(getApplicationContext(), "LeftDrawer item clicked. Pos: " + position + ". ID: " + id + ". Item:" + mMenuItems[position], Toast.LENGTH_LONG).show();
+//            Toast.makeText(getApplicationContext(), "LeftDrawer item clicked. Pos: " + position + ". ID: " + id + ". Item:" + mMenuItems[position], Toast.LENGTH_LONG).show();
         }
     }
 
@@ -96,6 +96,11 @@ public class StartActivity extends Activity {
             case 2: {
                 FragmentWeb fragmentWeb = new FragmentWeb();
                 fTrans.replace(R.id.content_frame, fragmentWeb);
+            } break;
+            case 3: {
+                Intent intent = new Intent(this, Activity_multipane.class);
+                intent.putExtra("testValue", "zoldberg");
+                startActivity(intent);
             } break;
             default: {
                 Toast.makeText(getApplicationContext(), "Unknown item", Toast.LENGTH_LONG).show();

@@ -1,4 +1,4 @@
-package ua.ck.geekhub.android.dubiy.ufo;
+package ua.ck.geekhub.android.dubiy.ufo.adapter;
 
 /**
  * Created by Gary on 26.10.2014.

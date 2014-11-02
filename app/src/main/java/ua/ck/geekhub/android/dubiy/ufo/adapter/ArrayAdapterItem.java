@@ -1,4 +1,4 @@
-package ua.ck.geekhub.android.dubiy.ufo;
+package ua.ck.geekhub.android.dubiy.ufo.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.Random;
+
+import ua.ck.geekhub.android.dubiy.ufo.R;
 
 /**
  * Created by Gary on 26.10.2014.

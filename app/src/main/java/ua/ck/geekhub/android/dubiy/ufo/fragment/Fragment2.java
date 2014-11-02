@@ -8,17 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
 
-import ua.ck.geekhub.android.dubiy.ufo.ArrayAdapterItem;
-import ua.ck.geekhub.android.dubiy.ufo.ObjectItem;
+import ua.ck.geekhub.android.dubiy.ufo.adapter.ArrayAdapterItem;
+import ua.ck.geekhub.android.dubiy.ufo.adapter.ObjectItem;
 import ua.ck.geekhub.android.dubiy.ufo.R;
 
 /**
