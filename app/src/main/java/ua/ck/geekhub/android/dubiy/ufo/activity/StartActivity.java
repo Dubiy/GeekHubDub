@@ -98,7 +98,7 @@ public class StartActivity extends Activity {
                 fTrans.replace(R.id.content_frame, fragmentWeb);
             } break;
             case 3: {
-                Intent intent = new Intent(this, Activity_multipane.class);
+                Intent intent = new Intent(this, ActivityMultipane.class);
                 intent.putExtra("testValue", "zoldberg");
                 startActivity(intent);
             } break;

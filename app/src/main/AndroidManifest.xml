@@ -19,8 +19,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.Activity_multipane"
+            android:name=".activity.ActivityMultipane"
             android:label="@string/title_activity_activity_multipane" >
+        </activity>
+        <activity
+            android:name=".activity.ActivityMultipaneRight"
+            android:label="@string/title_activity_activity_multipane_right" >
         </activity>
     </application>
 

@@ -27,6 +27,13 @@
         <item>WebView</item>
         <item>Multi-pane layouts pattern</item>
     </string-array>
+    <string-array name="urls">
+        <item>bash.im</item>
+        <item>m.habr.ru</item>
+        <item>garik.pp.ua</item>
+        <item>leprosorium.ru</item>
+    </string-array>
+
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
@@ -40,5 +47,6 @@
     <string name="title_activity_activity_multipane">Activity_multipane</string>
     <string name="hello_blank_fragment">Hello fragment MP detail</string>
     <string name="hello_blank_fragment0">Hello fragment MP list</string>
+    <string name="title_activity_activity_multipane_right">ActivityMultipaneRight</string>
 
 </resources>

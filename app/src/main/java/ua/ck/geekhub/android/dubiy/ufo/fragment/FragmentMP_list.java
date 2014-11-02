@@ -18,10 +18,11 @@ import ua.ck.geekhub.android.dubiy.ufo.R;
 
 public class FragmentMP_list extends Fragment {
     OnLeftPaneSelectedListener mCallback;
-    private String[] mListItems;
+    private String[] mUrls;
     private ListView mListView;
 
     public FragmentMP_list() {}
+
 
     // The container Activity must implement this interface so the frag can deliver messages
     public interface OnLeftPaneSelectedListener {
@@ -47,31 +48,25 @@ public class FragmentMP_list extends Fragment {
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        mListItems = getResources().getStringArray(R.array.drawer_menu);
+        mUrls = getResources().getStringArray(R.array.urls);
         mListView = (ListView)view.findViewById(R.id.listView);
 
         if (mListView != null) {
-            mListView.setAdapter(new ArrayAdapter<String>(this.getActivity(), R.layout.drawer_list_item, mListItems));
+            mListView.setAdapter(new ArrayAdapter<String>(this.getActivity(), R.layout.drawer_list_item, mUrls));
             mListView.setOnItemClickListener(new ListView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView adapterView, View view, int position, long id) {
                     //Log.d("GARE", "ahaha");
                     mCallback.onLeftPaneItemSelected(position);
 
+                    //TODO розібратися як воно має працювати
                     // Set the item as checked to be highlighted when in two-pane layout
 //                    getListView().setItemChecked(position, true);
 
                 }
             });
-
-
-
-
         }
-//        mListView.setOnItemClickListener(new DrawerItemClickListener());
 
     }
-
 
 }

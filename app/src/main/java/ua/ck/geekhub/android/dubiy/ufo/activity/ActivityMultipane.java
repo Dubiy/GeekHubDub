@@ -14,7 +14,7 @@ import ua.ck.geekhub.android.dubiy.ufo.R;
 import ua.ck.geekhub.android.dubiy.ufo.fragment.FragmentMP_detail;
 import ua.ck.geekhub.android.dubiy.ufo.fragment.FragmentMP_list;
 
-public class Activity_multipane extends Activity implements FragmentMP_list.OnLeftPaneSelectedListener {
+public class ActivityMultipane extends Activity implements FragmentMP_list.OnLeftPaneSelectedListener {
 
 /*
     public void onItemSelectedListener(int position) {
@@ -68,16 +68,12 @@ public class Activity_multipane extends Activity implements FragmentMP_list.OnLe
         FragmentMP_detail fragmentMP_detail = (FragmentMP_detail)getFragmentManager().findFragmentById(R.id.fragment_mp_detail);
         if (fragmentMP_detail == null) {
 //            //ActivityB here
-//            /*Intent intent = new Intent(this, FragmentMP_detail.class);
-//            intent.putExtra("LeftPaneItemPosition", position);
-//            startActivity(intent);*/
+            Intent intent = new Intent(this, ActivityMultipaneRight.class);
+            intent.putExtra(FragmentMP_detail.ARG_LEFTPANEITEMPOSITION, position);
+            startActivity(intent);
         } else {
-            fragmentMP_detail.LoaddContent(position);
+            fragmentMP_detail.LoadSomeContent(position);
             Toast.makeText(this, "mTextView is null", Toast.LENGTH_LONG).show();
         }
-
-
-
-
     }
 }
