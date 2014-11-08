@@ -2,30 +2,24 @@ package ua.ck.geekhub.android.dubiy.ufo.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.util.Random;
-
 import ua.ck.geekhub.android.dubiy.ufo.R;
-import ua.ck.geekhub.android.dubiy.ufo.entity.ObjectItem;
+import ua.ck.geekhub.android.dubiy.ufo.entity.HabraPost;
 
 /**
- * Created by Gary on 26.10.2014.
+ * Created by Gary on 08.11.2014.
  */
-public class ArrayAdapterItem extends ArrayAdapter {
-
+public class HabraAdapter extends ArrayAdapter {
     Context mContext;
     int layoutResourceId;
-    ObjectItem data[] = null;
-    Random random = new Random();
+    HabraPost data[] = null;
 
-
-    public ArrayAdapterItem(Context mContext, int layoutResourceId, ObjectItem[] data) {
+    public HabraAdapter(Context mContext, int layoutResourceId, HabraPost[] data) {
         super(mContext, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.mContext = mContext;
@@ -47,16 +41,16 @@ public class ArrayAdapterItem extends ArrayAdapter {
         }
 
         //object item based on the position
-        ObjectItem objectItem = data[position];
+        HabraPost objectItem = data[position];
 
-        //get the TextView and then set the text (item name) and tag (item ID) values
-        TextView textViewItem = (TextView)convertView.findViewById(R.id.textViewItem);
-        textViewItem.setTag(objectItem.itemId);
-        textViewItem.setText(objectItem.itemName);
-        textViewItem.setBackgroundColor(new Color().argb(128, random.nextInt(255), random.nextInt(255), random.nextInt(255)));
+        TextView textViewTitle = (TextView)convertView.findViewById(R.id.textViewTitle);
+        TextView textViewDate = (TextView)convertView.findViewById(R.id.textViewDate);
+
+        textViewTitle.setText(objectItem.Title);
+        textViewDate.setText(objectItem.PublishDate);
+
         return convertView;
 
     }
-
 
 }

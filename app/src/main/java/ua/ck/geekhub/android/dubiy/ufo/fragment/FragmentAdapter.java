@@ -16,13 +16,13 @@ import android.widget.Toast;
 import java.util.Random;
 
 import ua.ck.geekhub.android.dubiy.ufo.adapter.ArrayAdapterItem;
-import ua.ck.geekhub.android.dubiy.ufo.adapter.ObjectItem;
+import ua.ck.geekhub.android.dubiy.ufo.entity.ObjectItem;
 import ua.ck.geekhub.android.dubiy.ufo.R;
 
 /**
  * Created by Gary on 20.10.2014.
  */
-public class Fragment2 extends Fragment {
+public class FragmentAdapter extends Fragment {
     final String LOG_TAG = "myLogs";
 
     char[] chars;
@@ -32,12 +32,12 @@ public class Fragment2 extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        Log.d(LOG_TAG, "Fragment2 onAttach");
+        Log.d(LOG_TAG, "FragmentAdapter onAttach");
     }
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(LOG_TAG, "Fragment2 onCreate");
+        Log.d(LOG_TAG, "FragmentAdapter onCreate");
 
         StringBuilder tmp = new StringBuilder();
         for (char c = '0'; c <= '9'; c++) {
@@ -52,7 +52,7 @@ public class Fragment2 extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment2, null);
+        View v = inflater.inflate(R.layout.fragment_adapter, null);
         listView = (ListView)v.findViewById(R.id.listView);
 
         Button btn_gen_list = (Button) v.findViewById(R.id.btn_gen_list);
@@ -98,7 +98,7 @@ public class Fragment2 extends Fragment {
 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.d(LOG_TAG, "fragment2 onActivityCreated");
+        Log.d(LOG_TAG, "FragmentAdapter onActivityCreated");
     }
 
 

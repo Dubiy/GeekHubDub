@@ -1,12 +1,20 @@
 package ua.ck.geekhub.android.dubiy.ufo.activity;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import ua.ck.geekhub.android.dubiy.ufo.R;
+import android.widget.Toast;
 
-public class ActivityJSON extends Activity {
+import ua.ck.geekhub.android.dubiy.ufo.R;
+import ua.ck.geekhub.android.dubiy.ufo.entity.HabraPost;
+import ua.ck.geekhub.android.dubiy.ufo.fragment.FragmentJsonContent;
+import ua.ck.geekhub.android.dubiy.ufo.fragment.FragmentJsonList;
+
+public class ActivityJSON extends Activity implements FragmentJsonList.OnFragmentInteractionListener, FragmentJsonContent.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,5 +40,27 @@ public class ActivityJSON extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onLeftPaneItemSelected(Integer position, HabraPost habraPost) {
+        Log.d("GARY", position.toString() + " " + habraPost.toString());
+
+        FragmentJsonContent fragmentJsonContent = (FragmentJsonContent)getFragmentManager().findFragmentById(R.id.fragment_content)
+
+        if (fragmentJsonContent == null) {
+//            //ActivityB here
+            Intent intent = new Intent(this, ActivityMultipaneRight.class);
+            intent.putExtra(fragmentJsonContent.ARG_LEFTPANEITEMPOSITION, position);
+            startActivity(intent);
+        } else {
+            fragmentJsonContent.LoadSomeContent(position);
+            Toast.makeText(this, "mTextView is null", Toast.LENGTH_LONG).show();
+        }
     }
 }

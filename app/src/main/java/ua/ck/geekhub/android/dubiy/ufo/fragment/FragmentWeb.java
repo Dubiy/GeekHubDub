@@ -23,7 +23,7 @@ public class FragmentWeb extends Fragment {
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState) {
-        Log.d(LOG_TAG, "fragment1 onCreateView");
+        Log.d(LOG_TAG, "fragmentAnim onCreateView");
         View v = inflater.inflate(R.layout.web_layout, null);
         webView = (WebView)v.findViewById(R.id.web_view);
         WebSettings webSettings = webView.getSettings();

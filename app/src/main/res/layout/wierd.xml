@@ -22,15 +22,15 @@
         android:layout_gravity="center_horizontal" />
 
     <fragment
-        android:id="@+id/fragment1"
-        android:name="ua.ck.geekhub.android.dubiy.ufo.fragment.Fragment1"
+        android:id="@+id/fragmentAnim"
+        android:name="ua.ck.geekhub.android.dubiy.ufo.fragment.FragmentAnim"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        tools:layout="@layout/fragment1">
+        tools:layout="@layout/fragmentAnim">
     </fragment>
     <FrameLayout
-        android:id="@+id/fragment2"
+        android:id="@+id/fragmentAdapter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">

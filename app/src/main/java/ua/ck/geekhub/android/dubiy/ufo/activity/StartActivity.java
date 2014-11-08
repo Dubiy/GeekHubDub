@@ -16,8 +16,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import ua.ck.geekhub.android.dubiy.ufo.fragment.Fragment1;
-import ua.ck.geekhub.android.dubiy.ufo.fragment.Fragment2;
+import ua.ck.geekhub.android.dubiy.ufo.fragment.FragmentAdapter;
+import ua.ck.geekhub.android.dubiy.ufo.fragment.FragmentAnim;
 import ua.ck.geekhub.android.dubiy.ufo.R;
 import ua.ck.geekhub.android.dubiy.ufo.fragment.FragmentWeb;
 
@@ -86,12 +86,12 @@ public class StartActivity extends Activity {
         Fragment fragment = new Fragment();
         switch (position) {
             case 0: {
-                Fragment1 fragment1 = new Fragment1();
-                fTrans.replace(R.id.content_frame, fragment1);
+                FragmentAnim fragmentAnim = new FragmentAnim();
+                fTrans.replace(R.id.content_frame, fragmentAnim);
             } break;
             case 1: {
-                Fragment2 fragment2 = new Fragment2();
-                fTrans.replace(R.id.content_frame, fragment2);
+                FragmentAdapter fragmentAdapter = new FragmentAdapter();
+                fTrans.replace(R.id.content_frame, fragmentAdapter);
             } break;
             case 2: {
                 FragmentWeb fragmentWeb = new FragmentWeb();

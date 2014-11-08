@@ -16,7 +16,7 @@ import ua.ck.geekhub.android.dubiy.ufo.R;
 /**
  * Created by Gary on 20.10.2014.
  */
-public class Fragment1 extends Fragment {
+public class FragmentAnim extends Fragment {
     final String LOG_TAG = "myLogs";
 
     Animation animFadeIn;
@@ -28,7 +28,7 @@ public class Fragment1 extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        Log.d(LOG_TAG, "Fragment1 onAttach");
+        Log.d(LOG_TAG, "FragmentAnim onAttach");
 //        this.getActivity().toString();
 
     }
@@ -39,12 +39,12 @@ public class Fragment1 extends Fragment {
         animFadeOut = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.fade_out);
         animZoomIn = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.zoom_in);
         animZoomOut = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.zoom_out);
-        Log.d(LOG_TAG, "Fragment1 onCreate");
+        Log.d(LOG_TAG, "FragmentAnim onCreate");
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState) {
-        Log.d(LOG_TAG, "fragment1 onCreateView");
-        View v = inflater.inflate(R.layout.fragment1, null);
+        Log.d(LOG_TAG, "fragmentAnim onCreateView");
+        View v = inflater.inflate(R.layout.fragment_anim, null);
         imageView = (ImageView)v.findViewById(R.id.imageView);
         Button btn_anim_fade_in = (Button)v.findViewById(R.id.btn_anim_fade_in);
         btn_anim_fade_in.setOnClickListener(new View.OnClickListener() {
@@ -81,18 +81,18 @@ public class Fragment1 extends Fragment {
 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.d(LOG_TAG, "fragment1 onActivityCreated");
+        Log.d(LOG_TAG, "fragmentAnim onActivityCreated");
 
     }
 
     public void onStart() {
         super.onStart();
-        Log.d(LOG_TAG, "fragment1 onStart");
+        Log.d(LOG_TAG, "fragmentAnim onStart");
     }
 
     public void onResume() {
         super.onResume();
-        Log.d(LOG_TAG, "fragment1 onResume");
+        Log.d(LOG_TAG, "fragmentAnim onResume");
 //        TextView tv1 = (TextView) getView().findViewById(R.id.textView2);
 //        tv1.setText(this.getActivity().toString());
 //        tv1.setText("ololo");
@@ -100,27 +100,27 @@ public class Fragment1 extends Fragment {
 
     public void onPause() {
         super.onPause();
-        Log.d(LOG_TAG, "fragment1 onPause");
+        Log.d(LOG_TAG, "fragmentAnim onPause");
     }
 
     public void onStop() {
         super.onStop();
-        Log.d(LOG_TAG, "fragment1 onStop");
+        Log.d(LOG_TAG, "fragmentAnim onStop");
     }
 
     public void onDestroyView() {
         super.onDestroyView();
-        Log.d(LOG_TAG, "fragment1 onDestroyView");
+        Log.d(LOG_TAG, "fragmentAnim onDestroyView");
     }
 
     public void onDestroy() {
         super.onDestroy();
-        Log.d(LOG_TAG, "fragment1 onDestroy");
+        Log.d(LOG_TAG, "fragmentAnim onDestroy");
     }
 
     public void onDetach() {
         super.onDetach();
-        Log.d(LOG_TAG, "fragment1 onDetach");
+        Log.d(LOG_TAG, "fragmentAnim onDetach");
     }
 
 
