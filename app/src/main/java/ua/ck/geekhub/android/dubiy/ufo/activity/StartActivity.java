@@ -102,6 +102,14 @@ public class StartActivity extends Activity {
                 intent.putExtra("testValue", "zoldberg");
                 startActivity(intent);
             } break;
+            case 4: {
+                Intent intent = new Intent(this, ThreadTest.class);
+                startActivity(intent);
+            } break;
+            case 5: {
+                Intent intent = new Intent(this, ActivityJSON.class);
+                startActivity(intent);
+            } break;
             default: {
                 Toast.makeText(getApplicationContext(), "Unknown item", Toast.LENGTH_LONG).show();
             }

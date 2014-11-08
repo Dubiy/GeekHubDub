@@ -16,23 +16,6 @@ import ua.ck.geekhub.android.dubiy.ufo.fragment.FragmentMP_list;
 
 public class ActivityMultipane extends Activity implements FragmentMP_list.OnLeftPaneSelectedListener {
 
-/*
-    public void onItemSelectedListener(int position) {
-        Log.d("GARE", "OnItemSelectedListener  fragment");
-        Toast.makeText(getApplicationContext(), "OnItemSelectedListener  fragment", Toast.LENGTH_LONG).show();
-    }
-*/
-
-
-
-
-
-
-
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +43,7 @@ public class ActivityMultipane extends Activity implements FragmentMP_list.OnLef
 
     @Override
     public void onLeftPaneItemSelected(int position) {
-        //FragmentMP_list intefrace
+        //FragmentMP_list interface
 
 //        Random random = new Random();
 //        Toast.makeText(this, "[activity!!!] item clicked.  Pos: " + position + ". Random: " + random.nextInt(), Toast.LENGTH_LONG).show();
