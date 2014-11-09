@@ -7,14 +7,14 @@
 
 
     <fragment
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/multipane_leftpane_width"
         android:layout_height="match_parent"
         android:name="ua.ck.geekhub.android.dubiy.ufo.fragment.FragmentJsonList"
         android:id="@+id/fragment_list" />
 
-    <!--fragment
+    <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="ua.ck.geekhub.android.dubiy.ufo.fragment.FragmentJsonContent"
-        android:id="@+id/fragment_content" /-->
+        android:id="@+id/fragment_content" />
 </LinearLayout>

@@ -56,7 +56,6 @@ public class ActivityMultipane extends Activity implements FragmentMP_list.OnLef
             startActivity(intent);
         } else {
             fragmentMP_detail.LoadSomeContent(position);
-            Toast.makeText(this, "mTextView is null", Toast.LENGTH_LONG).show();
         }
     }
 }

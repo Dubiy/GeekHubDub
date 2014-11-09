@@ -51,5 +51,6 @@
     <string name="title_activity_activity_multipane_right">ActivityMultipaneRight</string>
     <string name="title_activity_thread_test">ThreadTest</string>
     <string name="title_activity_activity_json">ActivityJSON</string>
+    <string name="title_activity_activity_jsonright">ActivityJSONright</string>
 
 </resources>

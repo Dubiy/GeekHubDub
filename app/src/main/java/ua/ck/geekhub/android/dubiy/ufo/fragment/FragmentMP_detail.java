@@ -79,10 +79,6 @@ public class FragmentMP_detail extends Fragment {
     }
 
     public void LoadSomeContent(int LeftPaneItemPosition) {
-        //TODO розібратися чому цей метод викликається 2 рази. при другому виклику (mTextView == null). програмістика...
-
-
-
         if (mWebView != null) {
             mLeftPaneItemPosition = LeftPaneItemPosition;
 //            getActivity().getIntent().getExtras().putInt(ARG_LEFTPANEITEMPOSITION, mLeftPaneItemPosition);
