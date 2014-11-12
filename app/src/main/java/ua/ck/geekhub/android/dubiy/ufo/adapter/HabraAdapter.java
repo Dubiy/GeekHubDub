@@ -8,6 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import ua.ck.geekhub.android.dubiy.ufo.R;
 import ua.ck.geekhub.android.dubiy.ufo.entity.HabraPost;
 
@@ -47,7 +51,17 @@ public class HabraAdapter extends ArrayAdapter {
         TextView textViewDate = (TextView)convertView.findViewById(R.id.textViewDate);
 
         textViewTitle.setText(objectItem.Title);
-        textViewDate.setText(objectItem.PublishDate);
+
+        String resultDate = "";
+        try {
+            Date parsedDate = new SimpleDateFormat("EEE, dd MMM yyyy kk:mm:ss zzz").parse(objectItem.PublishDate);
+            resultDate = new SimpleDateFormat("dd/MM/yyyy kk:mm:ss").format(parsedDate);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+//        textViewDate.setText(objectItem.PublishDate);
+        textViewDate.setText(resultDate);
 
         return convertView;
 
