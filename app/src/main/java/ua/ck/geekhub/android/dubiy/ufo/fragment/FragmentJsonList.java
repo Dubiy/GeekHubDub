@@ -27,6 +27,7 @@ import java.io.IOException;
 import ua.ck.geekhub.android.dubiy.ufo.R;
 import ua.ck.geekhub.android.dubiy.ufo.adapter.HabraAdapter;
 import ua.ck.geekhub.android.dubiy.ufo.entity.HabraPost;
+import ua.ck.geekhub.android.dubiy.ufo.utils.StaticDataHolder;
 
 public class FragmentJsonList extends Fragment {
     private OnFragmentInteractionListener mListener;
@@ -43,22 +44,9 @@ public class FragmentJsonList extends Fragment {
         // Required empty public constructor
     }
 
-    /*public static FragmentJsonList newInstance(String param1, String param2) {
-        FragmentJsonList fragment = new FragmentJsonList();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }*/
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }*/
     }
 
     @Override
@@ -71,10 +59,6 @@ public class FragmentJsonList extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mListView = (ListView)view.findViewById(R.id.listView);
         mTextView = (TextView)view.findViewById(R.id.textView);
-
-        final String[] mUrls = {"haha", "Gary", "Android", "Cat"};
-
-//        mJsonFeed ;
 
         new Thread(new Runnable() {
             @Override
@@ -100,15 +84,16 @@ public class FragmentJsonList extends Fragment {
                         posts[i].Content = entries.getJSONObject(i).getString("content");
                     }
                     mHabraPosts = posts;
+                    StaticDataHolder.Posts = posts;
                     view.post(new Runnable() {
                         @Override
                         public void run() {
 //                            mListView.setAdapter(new ArrayAdapter<String>(view.getContext(), R.layout.drawer_list_item, mUrls));
-                            mListView.setAdapter(new HabraAdapter(getActivity(), R.layout.habra_list_item, mHabraPosts));
+                            mListView.setAdapter(new HabraAdapter(getActivity(), R.layout.habra_list_item, StaticDataHolder.Posts));
                             mListView.setOnItemClickListener(new ListView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView adapterView, View view, int position, long id) {
-                                    mListener.onLeftPaneItemSelected(position, mHabraPosts[position]);
+                                    mListener.onLeftPaneItemSelected(position, StaticDataHolder.Posts[position]);
                                 }
                             });
                         }

@@ -1,24 +1,63 @@
 package ua.ck.geekhub.android.dubiy.ufo.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 
 import ua.ck.geekhub.android.dubiy.ufo.R;
+import ua.ck.geekhub.android.dubiy.ufo.adapter.HabraAdapter;
 import ua.ck.geekhub.android.dubiy.ufo.entity.HabraPost;
 import ua.ck.geekhub.android.dubiy.ufo.fragment.FragmentJsonContent;
+import ua.ck.geekhub.android.dubiy.ufo.utils.StaticDataHolder;
 
 public class ActivityJSONright extends Activity {
+
+    private String[] mMenuItems;
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerList;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jsonright);
+
+        mMenuItems = getResources().getStringArray(R.array.drawer_menu);
+        mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        mDrawerList = (ListView)findViewById(R.id.left_drawer);
+
+//        mDrawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, mMenuItems));
+//        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+
+        //TODO виділити акивний пункт в списку
+        mDrawerList.setAdapter(new HabraAdapter(this, R.layout.habra_list_item, StaticDataHolder.Posts));
+        mDrawerList.setOnItemClickListener(new ListView.OnItemClickListener() {
+            @Override
+
+            public void onItemClick(AdapterView adapterView, View view, int position, long id) {
+
+                FragmentJsonContent fragmentJsonContent = (FragmentJsonContent)getFragmentManager().findFragmentById(R.id.fragment);
+                if (fragmentJsonContent != null) {
+//                    Toast.makeText(getApplicationContext(), "Item Clicked " + position, Toast.LENGTH_LONG).show();
+                    fragmentJsonContent.LoadSomeContent(position, StaticDataHolder.Posts[position]);
+                }
+                mDrawerLayout.closeDrawer(mDrawerList);
+            }
+        });
+
+        //TODO зробить щоб ActionBar переносило назад, в попередню актівіті
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setHomeButtonEnabled(true);
     }
 
 
