@@ -33,13 +33,22 @@
         <activity
             android:name=".activity.ActivityJSON"
             android:label="@string/title_activity_activity_json"
-            android:theme="@style/Theme.Gary">
+            android:theme="@style/Theme.Gary" >
         </activity>
         <activity
             android:name=".activity.ActivityJSONright"
             android:label="@string/title_activity_activity_jsonright"
-            android:parentActivityName="ua.ck.geekhub.android.dubiy.ufo.activity.ActivityJSON"
+            android:parentActivityName=".activity.ActivityJSON"
+            android:theme="@style/Theme.Gary" >
+        </activity>
+        <activity
+            android:name=".activity.NinePatch"
+            android:label="@string/title_activity_nine_patch"
+            android:parentActivityName=".activity.StartActivity"
             android:theme="@style/Theme.Gary">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ua.ck.geekhub.android.dubiy.ufo.activity.StartActivity" />
         </activity>
     </application>
 

@@ -108,6 +108,11 @@ public class StartActivity extends Activity {
                 Intent intent = new Intent(this, ActivityJSON.class);
                 startActivity(intent);
             } break;
+            case 6: {
+                Intent intent = new Intent(this, NinePatch.class);
+                startActivity(intent);
+            } break;
+
             default: {
                 Toast.makeText(getApplicationContext(), "Unknown item", Toast.LENGTH_LONG).show();
             }
