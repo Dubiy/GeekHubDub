@@ -43,11 +43,6 @@ public class ActivityMultipane extends Activity implements FragmentMP_list.OnLef
 
     @Override
     public void onLeftPaneItemSelected(int position) {
-        //FragmentMP_list interface
-
-//        Random random = new Random();
-//        Toast.makeText(this, "[activity!!!] item clicked.  Pos: " + position + ". Random: " + random.nextInt(), Toast.LENGTH_LONG).show();
-
         FragmentMP_detail fragmentMP_detail = (FragmentMP_detail)getFragmentManager().findFragmentById(R.id.fragment_mp_detail);
         if (fragmentMP_detail == null) {
 //            //ActivityB here

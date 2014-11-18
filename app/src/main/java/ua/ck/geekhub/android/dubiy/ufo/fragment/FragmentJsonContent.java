@@ -1,7 +1,6 @@
 package ua.ck.geekhub.android.dubiy.ufo.fragment;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,18 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
-
-import java.io.Serializable;
 
 import ua.ck.geekhub.android.dubiy.ufo.R;
 import ua.ck.geekhub.android.dubiy.ufo.entity.HabraPost;
 
 public class FragmentJsonContent extends Fragment {
-//    private OnFragmentInteractionListener mListener;
     public final static String ARG_LEFTPANEITEMPOSITION = "LeftPaneItemPosition";
     private HabraPost mHabraPost;
     private String jsonMyObject;
@@ -30,14 +24,7 @@ public class FragmentJsonContent extends Fragment {
         // Required empty public constructor
     }
 
-    /*public static FragmentJsonContent newInstance(String param1, String param2) {
-        FragmentJsonContent fragment = new FragmentJsonContent();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }*/
+
 
     @Override
     public void onStart() {
@@ -95,16 +82,12 @@ public class FragmentJsonContent extends Fragment {
 //        mListener = null;
     }
 
-    //interface
-    /*public interface OnFragmentInteractionListener {
-        public void onFragmentInteraction(Uri uri);
-    }*/
 
     public void LoadSomeContent(int LeftPaneItemPosition, HabraPost habraPost) {
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         mWebView.loadData(habraPost.toString(), "text/html", "UTF-8");
-        mWebView.loadDataWithBaseURL("", habraPost.Content, "text/html", "UTF-8", "");
+        mWebView.loadDataWithBaseURL("", habraPost.getContent(), "text/html", "UTF-8", "");
     }
 
 }

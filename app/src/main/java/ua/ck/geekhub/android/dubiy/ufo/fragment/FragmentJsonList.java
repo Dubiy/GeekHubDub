@@ -1,28 +1,21 @@
 package ua.ck.geekhub.android.dubiy.ufo.fragment;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.IOException;
 
 import ua.ck.geekhub.android.dubiy.ufo.R;
 import ua.ck.geekhub.android.dubiy.ufo.adapter.HabraAdapter;
@@ -77,11 +70,11 @@ public class FragmentJsonList extends Fragment {
                     for (int i = 0; i < entries.length(); i++) {
                         posts[i] = new HabraPost();
 //                        Log.d("GARE", posts[i].t);
-                        posts[i].Title = entries.getJSONObject(i).getString("title");
-                        posts[i].Link = entries.getJSONObject(i).getString("link");
-                        posts[i].PublishDate = entries.getJSONObject(i).getString("publishedDate");
-                        posts[i].ShortContent = entries.getJSONObject(i).getString("contentSnippet");
-                        posts[i].Content = entries.getJSONObject(i).getString("content");
+                        posts[i].setTitle(entries.getJSONObject(i).getString("title"));
+                        posts[i].setLink(entries.getJSONObject(i).getString("link"));
+                        posts[i].setPublishDate(entries.getJSONObject(i).getString("publishedDate"));
+                        posts[i].setShortContent(entries.getJSONObject(i).getString("contentSnippet"));
+                        posts[i].setContent(entries.getJSONObject(i).getString("content"));
                     }
                     mHabraPosts = posts;
                     StaticDataHolder.Posts = posts;

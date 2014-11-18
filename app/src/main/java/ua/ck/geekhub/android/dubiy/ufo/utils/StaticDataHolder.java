@@ -7,5 +7,4 @@ import ua.ck.geekhub.android.dubiy.ufo.entity.HabraPost;
  */
 public class StaticDataHolder {
     public static HabraPost[] Posts;
-
 }

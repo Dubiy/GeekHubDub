@@ -14,22 +14,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.io.InputStream;
 
 import ua.ck.geekhub.android.dubiy.ufo.R;
 
 public class ThreadTest extends Activity {
 
-    View.OnClickListener onClickListener = new View.OnClickListener() {
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(final View view) {
 
@@ -49,14 +46,14 @@ public class ThreadTest extends Activity {
                             view.post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    btn_thread.setText("Hello");
+                                    btnThread.setText("Hello");
                                 }
                             });
 
                             view.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
-                                    btn_thread.setText("Thread");
+                                    btnThread.setText("Thread");
                                 }
                             }, 1000);
 
@@ -124,7 +121,7 @@ public class ThreadTest extends Activity {
         }
     };
 
-    Button btn_image, btn_json, btn_thread;
+    Button btnImage, btnJson, btnThread;
     ImageView img1;
     TextView tv1;
 
@@ -133,13 +130,13 @@ public class ThreadTest extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thread_test);
-        btn_image = (Button)findViewById(R.id.btn_image);
-        btn_json = (Button)findViewById(R.id.btn_json);
-        btn_thread = (Button)findViewById(R.id.btn_thread);
-        btn_image.setOnClickListener(onClickListener);
-        btn_json.setOnClickListener(onClickListener);
-        btn_thread.setOnClickListener(onClickListener);
-        btn_json.setOnClickListener(onClickListener);
+        btnImage = (Button)findViewById(R.id.btn_image);
+        btnJson = (Button)findViewById(R.id.btn_json);
+        btnThread = (Button)findViewById(R.id.btn_thread);
+        btnImage.setOnClickListener(onClickListener);
+        btnJson.setOnClickListener(onClickListener);
+        btnThread.setOnClickListener(onClickListener);
+        btnJson.setOnClickListener(onClickListener);
         img1 = (ImageView) findViewById(R.id.imageView);
         tv1 = (TextView)findViewById(R.id.textView);
 

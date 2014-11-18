@@ -23,21 +23,14 @@ import ua.ck.geekhub.android.dubiy.ufo.R;
  * Created by Gary on 20.10.2014.
  */
 public class FragmentAdapter extends Fragment {
-    final String LOG_TAG = "myLogs";
+    private final String LOG_TAG = this.getClass().getSimpleName();
 
-    char[] chars;
-    Random random = new Random();
-    ListView listView;
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        Log.d(LOG_TAG, "FragmentAdapter onAttach");
-    }
+    private char[] chars;
+    private Random random = new Random();
+    private ListView listView;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(LOG_TAG, "FragmentAdapter onCreate");
 
         StringBuilder tmp = new StringBuilder();
         for (char c = '0'; c <= '9'; c++) {
@@ -95,12 +88,5 @@ public class FragmentAdapter extends Fragment {
             Toast.makeText(getActivity().getApplicationContext(), "Clicked \"" + listView.getItemAtPosition(i).toString() + "\" item. ID: " + textViewItem.getTag().toString(), Toast.LENGTH_LONG).show();
         }
     }
-
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        Log.d(LOG_TAG, "FragmentAdapter onActivityCreated");
-    }
-
-
 
 }

@@ -22,6 +22,8 @@ import ua.ck.geekhub.android.dubiy.ufo.utils.StaticDataHolder;
 
 public class ActivityJSONright extends Activity {
 
+    public final static String ARG_HABRAPOST = "HABRAPOST";
+
     private String[] mMenuItems;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;

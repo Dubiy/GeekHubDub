@@ -17,13 +17,13 @@ import ua.ck.geekhub.android.dubiy.ufo.R;
  * Created by Gary on 20.10.2014.
  */
 public class FragmentAnim extends Fragment {
-    final String LOG_TAG = "myLogs";
+    final private String LOG_TAG = this.getClass().getSimpleName();
 
-    Animation animFadeIn;
-    Animation animFadeOut;
-    Animation animZoomIn;
-    Animation animZoomOut;
-    ImageView imageView;
+    private Animation animFadeIn;
+    private Animation animFadeOut;
+    private Animation animZoomIn;
+    private Animation animZoomOut;
+    private ImageView imageView;
 
     @Override
     public void onAttach(Activity activity) {

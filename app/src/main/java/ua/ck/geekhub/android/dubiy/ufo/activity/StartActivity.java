@@ -23,6 +23,7 @@ import ua.ck.geekhub.android.dubiy.ufo.fragment.FragmentWeb;
 
 public class StartActivity extends Activity {
 
+    private final String LOG_TAG = this.getClass().getSimpleName();
     private String[] mMenuItems;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -74,9 +75,7 @@ public class StartActivity extends Activity {
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView parent, View view, int position, long id) {
-//            Log.d("GARE", "ahaha");
             selectItem(position, id);
-//            Toast.makeText(getApplicationContext(), "LeftDrawer item clicked. Pos: " + position + ". ID: " + id + ". Item:" + mMenuItems[position], Toast.LENGTH_LONG).show();
         }
     }
 
@@ -99,7 +98,6 @@ public class StartActivity extends Activity {
             } break;
             case 3: {
                 Intent intent = new Intent(this, ActivityMultipane.class);
-                intent.putExtra("testValue", "zoldberg");
                 startActivity(intent);
             } break;
             case 4: {
@@ -133,7 +131,6 @@ public class StartActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.start, menu);
         return super.onCreateOptionsMenu(menu);
     }
@@ -149,10 +146,6 @@ public class StartActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }

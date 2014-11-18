@@ -19,9 +19,9 @@ import ua.ck.geekhub.android.dubiy.ufo.entity.HabraPost;
  * Created by Gary on 08.11.2014.
  */
 public class HabraAdapter extends ArrayAdapter {
-    Context mContext;
-    int layoutResourceId;
-    HabraPost data[] = null;
+    private Context mContext;
+    private int layoutResourceId;
+    private HabraPost data[] = null;
 
     public HabraAdapter(Context mContext, int layoutResourceId, HabraPost[] data) {
         super(mContext, layoutResourceId, data);
@@ -39,28 +39,25 @@ public class HabraAdapter extends ArrayAdapter {
          * So, when convertView is not null, you should simply update its contents instead of inflating a new row layout.
          */
         if (convertView == null) {
-            //inflate layout
             LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
             convertView = inflater.inflate(layoutResourceId, parent, false);
         }
 
-        //object item based on the position
         HabraPost objectItem = data[position];
 
         TextView textViewTitle = (TextView)convertView.findViewById(R.id.textViewTitle);
         TextView textViewDate = (TextView)convertView.findViewById(R.id.textViewDate);
 
-        textViewTitle.setText(objectItem.Title);
+        textViewTitle.setText(objectItem.getTitle());
 
         String resultDate = "";
         try {
-            Date parsedDate = new SimpleDateFormat("EEE, dd MMM yyyy kk:mm:ss zzz").parse(objectItem.PublishDate);
+            Date parsedDate = new SimpleDateFormat("EEE, dd MMM yyyy kk:mm:ss zzz").parse(objectItem.getPublishDate());
             resultDate = new SimpleDateFormat("dd/MM/yyyy kk:mm:ss").format(parsedDate);
 
         } catch (ParseException e) {
             e.printStackTrace();
         }
-//        textViewDate.setText(objectItem.PublishDate);
         textViewDate.setText(resultDate);
 
         return convertView;

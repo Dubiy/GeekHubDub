@@ -18,8 +18,8 @@ import android.widget.ImageView;
 import ua.ck.geekhub.android.dubiy.ufo.R;
 
 public class FragmentWeb extends Fragment {
-    final String LOG_TAG = "myLogs";
-    WebView webView;
+    private final String LOG_TAG = this.getClass().getSimpleName();
+    private WebView webView;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState) {

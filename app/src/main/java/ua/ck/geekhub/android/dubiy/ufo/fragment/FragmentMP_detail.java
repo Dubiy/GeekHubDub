@@ -39,15 +39,6 @@ public class FragmentMP_detail extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mUrls = getResources().getStringArray(R.array.urls);
-
-//        Bundle args = getActivity().getIntent().getExtras();
-//        if (args != null) {
-//            // Set article based on argument passed in
-//            LoadSomeContent(args.getInt(ARG_LEFTPANEITEMPOSITION));
-//        } else if (mLeftPaneItemPosition != -1) {
-//            // Set article based on saved instance state defined during onCreateView
-//            LoadSomeContent(mLeftPaneItemPosition);
-//        }
     }
 
     public FragmentMP_detail() {
@@ -58,10 +49,6 @@ public class FragmentMP_detail extends Fragment {
     public void onStart() {
         super.onStart();
 
-        // During startup, check if there are arguments passed to the fragment.
-        // onStart is a good place to do this because the layout has already been
-        // applied to the fragment at this point so we can safely call the method
-        // below that sets the article text.
         Bundle args = getActivity().getIntent().getExtras();
         if (args != null) {
             int defValue = mLeftPaneItemPosition;

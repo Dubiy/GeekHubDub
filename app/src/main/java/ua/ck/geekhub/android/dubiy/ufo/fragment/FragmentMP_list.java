@@ -17,7 +17,7 @@ import android.widget.Toast;
 import ua.ck.geekhub.android.dubiy.ufo.R;
 
 public class FragmentMP_list extends Fragment {
-    OnLeftPaneSelectedListener mCallback;
+    private OnLeftPaneSelectedListener mCallback;
     private String[] mUrls;
     private ListView mListView;
 

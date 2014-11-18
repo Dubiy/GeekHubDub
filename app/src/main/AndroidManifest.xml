@@ -36,7 +36,8 @@
         </activity>
         <activity
             android:name=".activity.ActivityJSONright"
-            android:label="@string/title_activity_activity_jsonright" >
+            android:label="@string/title_activity_activity_jsonright"
+            android:parentActivityName="ua.ck.geekhub.android.dubiy.ufo.activity.ActivityJSON">
         </activity>
     </application>
 

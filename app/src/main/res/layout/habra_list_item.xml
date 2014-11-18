@@ -1,31 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    style="@style/ListItemStyle.Holder">
 
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewTitle"
-        android:textSize="15dp"
-        android:text="Title"
-        android:padding="10dp"
-        android:singleLine="true"
-        android:textStyle="bold">
-    </TextView>
-
+        style="@style/ListItemStyle.Title"
+        android:id="@+id/textViewTitle" />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Date"
-        android:id="@+id/textViewDate"
-        android:layout_below="@+id/textViewTitle"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="10dp"
-        />
+        style="@style/ListItemStyle.Date"
+        android:id="@+id/textViewDate" />
 
 </RelativeLayout>

@@ -19,10 +19,10 @@ import ua.ck.geekhub.android.dubiy.ufo.entity.ObjectItem;
  */
 public class ArrayAdapterItem extends ArrayAdapter {
 
-    Context mContext;
-    int layoutResourceId;
-    ObjectItem data[] = null;
-    Random random = new Random();
+    private Context mContext;
+    private int layoutResourceId;
+    private ObjectItem data[] = null;
+    private Random random = new Random();
 
 
     public ArrayAdapterItem(Context mContext, int layoutResourceId, ObjectItem[] data) {
@@ -51,8 +51,8 @@ public class ArrayAdapterItem extends ArrayAdapter {
 
         //get the TextView and then set the text (item name) and tag (item ID) values
         TextView textViewItem = (TextView)convertView.findViewById(R.id.textViewItem);
-        textViewItem.setTag(objectItem.itemId);
-        textViewItem.setText(objectItem.itemName);
+        textViewItem.setTag(objectItem.getItemId());
+        textViewItem.setText(objectItem.getItemName());
         textViewItem.setBackgroundColor(new Color().argb(128, random.nextInt(255), random.nextInt(255), random.nextInt(255)));
         return convertView;
 
