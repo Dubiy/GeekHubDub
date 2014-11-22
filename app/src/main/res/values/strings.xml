@@ -27,7 +27,7 @@
         <item>WebView</item>
         <item>Multi-pane layouts pattern</item>
         <item>Thread test</item>
-        <item>9-patch test</item>
+        <item>Nine-patch test</item>
     </string-array>
     <string-array name="urls">
         <item>bash.im</item>

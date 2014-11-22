@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/GeekHubDub.iml" filepath="$PROJECT_DIR$/GeekHubDub.iml" />
       <module fileurl="file://$PROJECT_DIR$/UFO.iml" filepath="$PROJECT_DIR$/UFO.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
