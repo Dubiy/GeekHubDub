@@ -68,7 +68,7 @@ public class StartActivity extends Activity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         if (savedInstanceState == null) {
-            selectItem(0, 0);
+            selectItem(0, -1);
         }
     }
 
@@ -80,6 +80,10 @@ public class StartActivity extends Activity {
     }
 
     private void selectItem(int position, long id) {
+        boolean skipBackStack = false;
+        if (position == 0 && id == -1) {
+            skipBackStack = true;
+        }
         FragmentTransaction fTrans = getFragmentManager().beginTransaction();
 
         Fragment fragment = new Fragment();
@@ -105,22 +109,19 @@ public class StartActivity extends Activity {
                 startActivity(intent);
             } break;
             case 5: {
-                Intent intent = new Intent(this, ActivityJSON.class);
-                startActivity(intent);
-            } break;
-            case 6: {
                 Intent intent = new Intent(this, NinePatch.class);
                 startActivity(intent);
             } break;
-
             default: {
-                Toast.makeText(getApplicationContext(), "Unknown item", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Unknown item", Toast.LENGTH_LONG).show();
             }
         }
 
         setTitle(mMenuItems[position]);
 
-        fTrans.addToBackStack(null);
+        if (! skipBackStack) {
+            fTrans.addToBackStack(null);
+        }
         fTrans.commit();
 
 
@@ -176,7 +177,7 @@ public class StartActivity extends Activity {
             } break;
 
             default: {
-                Toast.makeText(getApplicationContext(), "Unknown menu item: " + item.getTitle(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), "Unknown menu item: " + item.getTitle(), Toast.LENGTH_LONG).show();
                 return super.onOptionsItemSelected(item);
             }
         }

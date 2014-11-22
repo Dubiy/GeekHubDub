@@ -27,7 +27,6 @@
         <item>WebView</item>
         <item>Multi-pane layouts pattern</item>
         <item>Thread test</item>
-        <item>habraReader RSS</item>
         <item>9-patch test</item>
     </string-array>
     <string-array name="urls">
@@ -51,8 +50,6 @@
     <string name="hello_blank_fragment0">Hello fragment MP list</string>
     <string name="title_activity_activity_multipane_right">ActivityMultipaneRight</string>
     <string name="title_activity_thread_test">ThreadTest</string>
-    <string name="title_activity_activity_json">harbaReader</string>
-    <string name="title_activity_activity_jsonright">habraPost</string>
     <string name="title_activity_nine_patch">ninePatch</string>
 
 </resources>
